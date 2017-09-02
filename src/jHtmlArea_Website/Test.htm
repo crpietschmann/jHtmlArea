@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="scripts/jquery-1.3.2.js"></script>
+
+    <script type="text/javascript" src="scripts/jHtmlArea-0.7.5.js"></script>
+    <link rel="Stylesheet" type="text/css" href="style/jHtmlArea.css" />
+    
+    <style type="text/css">
+        /* body { background: #ccc;} */
+        div.jHtmlArea .ToolBar ul li a.custom_disk_button 
+        {
+            background: url(images/disk.png) no-repeat;
+            background-position: 0 0;
+        }
+        
+        div.jHtmlArea { border: solid 1px #ccc; }
+    </style>
+</head>
+<body>
+    <textarea id="test" cols="50" rows="15"><p><h3>Test H3</h3>This is some sample text to test out the <b>WYSIWYG Control</b>.</p></textarea>
+    <script type="text/javascript">
+        // You can do this to perform a global override of any of the "default" options
+        // jHtmlArea.fn.defaultOptions.css = "jHtmlArea.Editor.css";
+
+        $(function() {
+        /*
+            $("#test").htmlarea();
+
+            $("#Textarea1").htmlarea({
+            toolbar: ["html","bold", "italic", "underline", "|", "h1", "h2", "h3", "h4", "h5", "h6", "|", "link", "unlink", "|",
+                    {
+                        css: "custom_disk_button", // This is how to add a completely custom Toolbar Button
+                        text: "Save",
+                        action: function(btn) {
+                            // 'this' = jHtmlArea object
+                            // 'btn' = jQuery object that represents the <A> "anchor" tag for the Toolbar Button
+                            alert('SAVE!\n\n' + this.toHtmlString());
+                        }
+                    }
+                    
+                ], // Overrides/Specifies the Toolbar buttons to show
+                css: "jHtmlArea.Editor.css", // Specify a specific CSS file to use for the Editor
+                loaded: function() { // Do something once the editor has finished loading
+                    //// 'this' is equal to the jHtmlArea object
+                    //alert("jHtmlArea has loaded!");
+                    //this.showHTMLView(); // show the HTML view once the editor has finished loading
+                }
+            });
+        */
+            $("textarea").htmlarea(); // Initialize jHtmlArea's with all default values
+        });
+    </script>
+    
+    <input type="button" value="Get Selection" onclick="alert($('#test').htmlarea('getSelectedHTML'));" />
+    
+    <!--<input type="button" value="forecolor(blue)" onclick="$('#test').htmlarea('forecolor', 'blue');" />
+    
+    
+    <input type="button" id="poopoo" value="test" onclick="checkSelection();" />
+    <br />
+    <textarea id="txt" cols="60" rows="15"></textarea>
+    <script type="text/javascript">
+        function checkSelection() {
+            var area = jHtmlArea($("#test")[0]);
+
+            area.iframe[0].contentWindow.focus();
+            var rng = area.getRange();
+
+            var s = rng.htmlText;
+            var e = $("<span/>").append(
+                (s.indexOf("<") !== 0) ? $("<span/>").append(s) : $(s)
+            );
+            e.find("*").css("font-size", "larger");
+            s = s + "\n\n\n" + e.html();
+
+
+            $("#txt").val(s);
+
+            rng.pasteHTML(s);
+            rng.collapse(false);
+            rng.select();
+        }
+    </script>-->
+    
+    
+    
+    <!--
+    <br /><br />
+    <script type="text/javascript">
+        function setHeading1() {
+            $('#test').htmlarea('formatBlock', "<h1>"); // ($.browser.msie ? "heading 1" : "h1"));
+            //$('#test').htmlarea('formatBlock', "<pre>");
+            //$('#test').htmlarea('formatBlock', "<sup>"); // <sub>
+        }
+    </script>
+    <input type="button" value="Format Block" onclick="setHeading1();" />
+    <br />
+    <input type="button" value="Insert Image" onclick="$('#test').htmlarea('image', 'http://www.google.com/intl/en_ALL/images/logo.gif');" />
+    <input type="button" value="Insert Image (prompt)" onclick="$('#test').htmlarea('image');" />
+    <br />
+    <input type="button" value="Remove Format" onclick="$('#test').htmlarea('removeFormat');" />
+    <input type="button" value="Create Link" onclick="$('#test').htmlarea('link');" />
+    <br />
+    <input type="button" value="Get HTML" onclick="alert(jHtmlArea($('#test')).toHtmlString());" />
+    <input type="button" value="Get HTML 2" onclick="alert($('#test').htmlarea('toHtmlString'));" />
+    <br />
+    <input type="button" value="Get TextArea Contents" onclick="alert($('#test').val());" />
+    <br />
+
+    <input type="button" value="HTML" onclick="$('#test').htmlarea('hideSource');" />
+    <input type="button" value="Source" onclick="$('#test').htmlarea('showSource');" />
+    -->
+    <br /><br /><br />
+    <textarea id="Textarea1" cols="50" rows="15"><p><h3>Another TextArea</h3>This is some sample text to test out the <b>WYSIWYG Control</b>.</p></textarea>
+    
+    <hr />
+    <textarea cols="60" rows="5"></textarea>
+    <hr />
+    <textarea cols="80" rows="5"></textarea>
+    <hr />
+    <textarea cols="40" rows="5"></textarea>
+    <hr />
+    <textarea cols="23" rows="5"></textarea>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "jHtmlArea_Website", "jHtmlArea_Website", "{7A6A4D47-FCDF-446D-BFBF-B4C0D8945798}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/jHtmlArea_Website"
+		Debug.AspNetCompiler.PhysicalPath = "jHtmlArea_Website\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\jHtmlArea_Website\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/jHtmlArea_Website"
+		Release.AspNetCompiler.PhysicalPath = "jHtmlArea_Website\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\jHtmlArea_Website\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3384"
+		SlnRelativePath = "jHtmlArea_Website\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B1F6F2A-3A4F-47BF-854F-63052A32A30B}"
+	ProjectSection(SolutionItems) = preProject
+		jsmin.bat = jsmin.bat
+		jsmin.exe = jsmin.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{2924946D-7731-4335-980E-E9942D283F6A}"
+	ProjectSection(SolutionItems) = preProject
+		Nuget\jHtmlArea.0.8.0.nupkg = Nuget\jHtmlArea.0.8.0.nupkg
+		Nuget\NuGet.exe = Nuget\NuGet.exe
+		Nuget\Package.bat = Nuget\Package.bat
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Package", "Package", "{61ACA418-CA07-4C09-A9C9-23E3E9B1766C}"
+	ProjectSection(SolutionItems) = preProject
+		Nuget\Package\jHtmlArea.nuspec = Nuget\Package\jHtmlArea.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{366DC670-E7E7-4D11-8BB5-F95CE9E6FA3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{DEDE77F0-3A22-497C-818C-2BAC653F3227}"
+	ProjectSection(SolutionItems) = preProject
+		Nuget\Package\Content\Scripts\jHtmlArea-0.8.js = Nuget\Package\Content\Scripts\jHtmlArea-0.8.js
+		Nuget\Package\Content\Scripts\jHtmlArea-0.8.min.js = Nuget\Package\Content\Scripts\jHtmlArea-0.8.min.js
+		Nuget\Package\Content\Scripts\jHtmlArea.ColorPickerMenu-0.8.js = Nuget\Package\Content\Scripts\jHtmlArea.ColorPickerMenu-0.8.js
+		Nuget\Package\Content\Scripts\jHtmlArea.ColorPickerMenu-0.8.min.js = Nuget\Package\Content\Scripts\jHtmlArea.ColorPickerMenu-0.8.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{D76F81D1-FDCE-4BFE-BBEA-36364E5AA91B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jHtmlArea", "jHtmlArea", "{D07A72B1-867F-4563-9301-EE55DEEBA4C2}"
+	ProjectSection(SolutionItems) = preProject
+		Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.ColorPickerMenu.css = Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.ColorPickerMenu.css
+		Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.css = Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.css
+		Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.Editor.css = Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.Editor.css
+		Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.png = Nuget\Package\Content\Content\jHtmlArea\jHtmlArea.png
+		Nuget\Package\Content\Content\jHtmlArea\jHtmlArea_Toolbar_Group__Btn_Select_BG.png = Nuget\Package\Content\Content\jHtmlArea\jHtmlArea_Toolbar_Group__Btn_Select_BG.png
+		Nuget\Package\Content\Content\jHtmlArea\jHtmlArea_Toolbar_Group_BG.png = Nuget\Package\Content\Content\jHtmlArea\jHtmlArea_Toolbar_Group_BG.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs04
+		SccLocalPath0 = .
+		SccWebProject1 = true
+		SccProjectUniqueName1 = jHtmlArea_Website
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = jHtmlArea_Website\\
+		SccProjectEnlistmentChoice1 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A6A4D47-FCDF-446D-BFBF-B4C0D8945798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A6A4D47-FCDF-446D-BFBF-B4C0D8945798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61ACA418-CA07-4C09-A9C9-23E3E9B1766C} = {2924946D-7731-4335-980E-E9942D283F6A}
+		{366DC670-E7E7-4D11-8BB5-F95CE9E6FA3F} = {61ACA418-CA07-4C09-A9C9-23E3E9B1766C}
+		{DEDE77F0-3A22-497C-818C-2BAC653F3227} = {366DC670-E7E7-4D11-8BB5-F95CE9E6FA3F}
+		{D76F81D1-FDCE-4BFE-BBEA-36364E5AA91B} = {366DC670-E7E7-4D11-8BB5-F95CE9E6FA3F}
+		{D07A72B1-867F-4563-9301-EE55DEEBA4C2} = {D76F81D1-FDCE-4BFE-BBEA-36364E5AA91B}
+	EndGlobalSection
+EndGlobal
