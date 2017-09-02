@@ -18,7 +18,7 @@ This project also includes Visual Studio JavaScript Intellisense support.
 
 - Full Documentation
 
-# NuGet Package
+## NuGet Package
 
 [http://nuget.org/packages/jHtmlArea](http://nuget.org/packages/jHtmlArea)
 
