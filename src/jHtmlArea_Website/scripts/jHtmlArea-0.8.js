@@ -117,7 +117,7 @@
 			this.updateTextArea();
 		},
 		ec: function (a, b, c) {
-			if (c != null) {
+			if ((c === undefined) || (c != null)) {
 				this.execCommand(a, b, c);
 			}
 
