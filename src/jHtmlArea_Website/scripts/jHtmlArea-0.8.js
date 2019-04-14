@@ -117,7 +117,7 @@
 			this.updateTextArea();
 		},
 		ec: function (a, b, c) {
-			if ((c === undefined) || (c != null)) {
+			if (c != null) {
 				this.execCommand(a, b, c);
 			}
 
@@ -170,17 +170,20 @@
 		pasteHTML: function (html) {
 			this.iframe[0].contentWindow.focus();
 			var r = this.getRange();
-			if ($browser.msie) {
-				r.pasteHTML(html);
-			} else if ($browser.mozilla) {
-				r.deleteContents();
-				r.insertNode($((html.indexOf("<") != 0) ? $("<span/>").append(html) : html)[0]);
-			} else { // Safari
-				r.deleteContents();
-				r.insertNode($(this.iframe[0].contentWindow.document.createElement("span")).append($((html.indexOf("<") != 0) ? "<span>" + html + "</span>" : html))[0]);
+			if (r === null) { alert("Error attempting to embed html"); }
+			else {
+				if ($browser.msie) {
+					r.pasteHTML(html);
+				} else if ($browser.mozilla) {
+					r.deleteContents();
+					r.insertNode($(html)[0]);
+				} else { // Safari
+					r.deleteContents();
+					r.insertNode($(this.iframe[0].contentWindow.document.createElement("span")).append($(html))[0]);
+				}
+				r.collapse(false);
+				r.select();
 			}
-			r.collapse(false);
-			r.select();
 		},
 		cut: function () {
 			this.ec("cut");
@@ -214,6 +217,13 @@
 			}
 		},
 		unlink: function () { this.ec("unlink", false, []); },
+		embed: function () {
+			var result = prompt("HTML to Embed", "");
+			if (result !== null && result !== undefined)
+			{
+				this.pasteHTML(result);
+			}
+		},
 		orderedList: function () { this.ec("insertorderedlist"); },
 		unorderedList: function () { this.ec("insertunorderedlist"); },
 		superscript: function () { this.ec("superscript"); },
@@ -334,7 +344,7 @@
 			["orderedlist", "unorderedlist"],
 			["indent", "outdent"],
 			["justifyleft", "justifycenter", "justifyright"],
-			["link", "unlink", "image", "horizontalrule"],
+			["link", "unlink", "image", "embed", "horizontalrule"],
 			["p", "h1", "h2", "h3", "h4", "h5", "h6"],
 			["cut", "copy", "paste"]
 		],
@@ -346,7 +356,7 @@
 			indent: "Indent", outdent: "Outdent", horizontalrule: "Insert Horizontal Rule",
 			justifyleft: "Left Justify", justifycenter: "Center Justify", justifyright: "Right Justify",
 			increasefontsize: "Increase Font Size", decreasefontsize: "Decrease Font Size", forecolor: "Text Color",
-			link: "Insert Link", unlink: "Remove Link", image: "Insert Image",
+			link: "Insert Link", unlink: "Remove Link", image: "Insert Image", embed: "Insert Embedded link (e.g. YouTube)",
 			orderedlist: "Insert Ordered List", unorderedlist: "Insert Unordered List",
 			subscript: "Subscript", superscript: "Superscript",
 			html: "Show/Hide HTML Source View"
