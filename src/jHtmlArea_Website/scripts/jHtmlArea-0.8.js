@@ -173,10 +173,13 @@
 			if (r === null) { alert("Error attempting to embed html"); }
 			else {
 				if ($browser.msie) {
-					r.pasteHTML(html);
+					//r.pasteHTML(html);
+					r.deleteContents();
+					r.insertNode($(this.iframe[0].contentWindow.document.body).append(html));
 				} else if ($browser.mozilla) {
 					r.deleteContents();
-					r.insertNode($(html)[0]);
+					//r.insertNode($(html)[0]);
+					r.insertNode($(this.iframe[0].contentWindow.document.body).append(html));
 				} else { // Safari
 					r.deleteContents();
 					r.insertNode($(this.iframe[0].contentWindow.document.createElement("span")).append($(html))[0]);
