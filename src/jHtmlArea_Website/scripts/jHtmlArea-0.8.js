@@ -157,7 +157,6 @@
 				return s.createRange();
 			}
 			return null;
-			//return (s.getRangeAt) ? s.getRangeAt(0) : s.createRange();
 		},
 		html: function (v) {
 			if (v !== undefined) {
@@ -173,12 +172,10 @@
 			if (r === null) { alert("Error attempting to embed html"); }
 			else {
 				if ($browser.msie) {
-					//r.pasteHTML(html);
 					r.deleteContents();
 					r.insertNode($(this.iframe[0].contentWindow.document.body).append(html));
 				} else if ($browser.mozilla) {
 					r.deleteContents();
-					//r.insertNode($(html)[0]);
 					r.insertNode($(this.iframe[0].contentWindow.document.body).append(html));
 				} else { // Safari
 					r.deleteContents();
@@ -186,6 +183,7 @@
 				}
 				r.collapse(false);
 				r.select();
+				this.updateTextArea();
 			}
 		},
 		cut: function () {
