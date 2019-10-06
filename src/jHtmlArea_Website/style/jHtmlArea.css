@@ -1,9 +1,5 @@
 ﻿div.jHtmlArea { display: block; overflow: hidden; border: solid 1px #aaa; }
-
-    div.jHtmlArea iframe, div.jHtmlArea textarea {
-        border: none;
-    }
-
+div.jHtmlArea iframe, div.jHtmlArea textarea { border: none; }
 
 div.jHtmlArea div { display: inline-block; padding: 0px; margin: 0px; }
 div.jHtmlArea .ToolBar { display: inline-block; background: #fbfbfb; border-bottom: solid 1px #aaa; }
@@ -45,7 +41,6 @@ div.jHtmlArea .ToolBar ul li a.outdent { background-position: -144px -16px;}
 div.jHtmlArea .ToolBar ul li a.horizontalrule { background-position: -160px -16px;}
 div.jHtmlArea .ToolBar ul li a.p { background-position: -176px -16px;}
 
-
 div.jHtmlArea .ToolBar ul li a.justifyleft { background-position: 0 -32px;}
 div.jHtmlArea .ToolBar ul li a.justifycenter { background-position: -16px -32px;}
 div.jHtmlArea .ToolBar ul li a.justifyright { background-position: -32px -32px;}
@@ -53,3 +48,5 @@ div.jHtmlArea .ToolBar ul li a.increasefontsize { background-position: -48px -32
 div.jHtmlArea .ToolBar ul li a.decreasefontsize { background-position: -64px -32px;}
 div.jHtmlArea .ToolBar ul li a.forecolor { background-position: -80px -32px;}
 div.jHtmlArea .ToolBar ul li a.embed { background-position: -96px -32px;}
+div.jHtmlArea .ToolBar ul li a.video { background-position: -112px -32px;}
+div.jHtmlArea .ToolBar ul li a.emaillink { background-position: -128px -32px;}

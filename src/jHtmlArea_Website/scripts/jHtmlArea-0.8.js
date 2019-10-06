@@ -43,7 +43,7 @@
 	})();
 
 	$.fn.htmlarea = function (opts) {
-		if (opts && typeof (opts) === "string") {
+		if (opts && (typeof (opts) === "string")) {
 			var args = [];
 			for (var i = 1; i < arguments.length; i++) { args.push(arguments[i]); }
 			var htmlarea = jHtmlArea(this[0]);
@@ -96,6 +96,16 @@
 				if (opts.loaded) { opts.loaded.call(this); }
 			}
 		},
+		clear: function () {
+			var contentWindow = this.iframe[0].contentWindow;
+			contentWindow.focus();
+			this.ec("selectAll");
+
+			var r = this.getRange();
+			r.deleteContents();
+
+			this.updateTextArea();
+		},
 		dispose: function () {
 			this.textarea.show().insertAfter(this.container);
 			this.container.remove();
@@ -107,7 +117,7 @@
 			if ($browser.msie === true && $browser.version >= 11) {
 				if (this.previousRange) {
 					var rng = this.previousRange;
-					var sel = this.getSelection()
+					var sel = this.getSelection();
 					sel.removeAllRanges();
 					sel.addRange(rng);
 				}
@@ -117,7 +127,7 @@
 			this.updateTextArea();
 		},
 		ec: function (a, b, c) {
-			if (c != null) {
+			if (c !== null) {
 				this.execCommand(a, b, c);
 			}
 
@@ -139,7 +149,6 @@
 		},
 		getSelection: function () {
 			if ($browser.msie === true && $browser.version < 11) {
-				//return (this.editor.parentWindow.getSelection) ? this.editor.parentWindow.getSelection() : this.editor.selection;
 				return this.editor.selection;
 			} else {
 				return this.iframe[0].contentDocument.defaultView.getSelection();
@@ -157,6 +166,7 @@
 				return s.createRange();
 			}
 			return null;
+			//return (s.getRangeAt) ? s.getRangeAt(0) : s.createRange();
 		},
 		html: function (v) {
 			if (v !== undefined) {
@@ -167,22 +177,13 @@
 			}
 		},
 		pasteHTML: function (html) {
-			this.iframe[0].contentWindow.focus();
+			var contentWindow = this.iframe[0].contentWindow;
+			contentWindow.focus();
 			var r = this.getRange();
 			if (r === null) { alert("Error attempting to embed html"); }
 			else {
-				if ($browser.msie) {
-					r.deleteContents();
-					r.insertNode($(this.iframe[0].contentWindow.document.body).append(html));
-				} else if ($browser.mozilla) {
-					r.deleteContents();
-					r.insertNode($(this.iframe[0].contentWindow.document.body).append(html));
-				} else { // Safari
-					r.deleteContents();
-					r.insertNode($(this.iframe[0].contentWindow.document.createElement("span")).append($(html))[0]);
-				}
-				r.collapse(false);
-				r.select();
+				r.deleteContents();
+				r.insertNode(contentWindow.document.createRange().createContextualFragment(html));
 				this.updateTextArea();
 			}
 		},
@@ -203,12 +204,22 @@
 			if ($browser.msie === true && !url) {
 				this.ec("insertImage", true);
 			} else {
-				this.ec("insertImage", false, (url || prompt("Image URL:", "http://")));
+				this.ec("insertImage", false, url || prompt("Image URL:", "http://"));
 			}
 		},
 		removeFormat: function () {
 			this.ec("removeFormat", false, []);
 			this.unlink();
+		},
+		emaillink: function () {
+			if ($browser.msie === true) {
+				this.ec("createLink", true);
+			} else {
+				var EmailAddress = prompt("Email Address:", "");
+				if (EmailAddress !== null) {
+					this.ec("createLink", false, "mailto:" + EmailAddress);
+				}
+			}
 		},
 		link: function () {
 			if ($browser.msie === true) {
@@ -220,9 +231,46 @@
 		unlink: function () { this.ec("unlink", false, []); },
 		embed: function () {
 			var result = prompt("HTML to Embed", "");
-			if (result !== null && result !== undefined)
-			{
+			if (result !== null && result !== undefined) {
 				this.pasteHTML(result);
+			}
+		},
+		video: function () {
+			//Supports YouTube and Vimeo
+
+			//YouTube Specific Parameters
+			var YouTubeURL = "youtube.com";
+			var YouTubeWatchURL = "watch?v=";
+			var YouTubeEmbedURL = "embed";
+			var YouTubeWatchLink = YouTubeURL + "/watch?v=";
+			var YouTubeSpecificTimeURL = "youtu.be";
+			var YouTubeTimeParameter = "?t=";
+			var YouTubeTimeStartParameter = "?start=";
+
+			//Vimeo Specific Parmaeters
+			var VimeoURL = "vimeo.com";
+			var VimeoPlayerURL = "player.vimeo.com/video";
+
+			var result = prompt("Video URL To Embed", "");
+			if (result !== null && result !== undefined) {
+				var embed = "";
+				if (result.trim().startsWith("http") || result.trim().startsWith("www.")) {
+					if (result.indexOf(YouTubeWatchLink) >= 0) { //You Tube URL From Browswer
+						embed = result.replace(YouTubeWatchURL, YouTubeEmbedURL + "/");
+					}
+					else if (result.indexOf(YouTubeSpecificTimeURL) >= 0) { //You Tube 'Copy Video URL at specific time' 
+						embed = result.replace(YouTubeSpecificTimeURL, YouTubeURL + "/" + YouTubeEmbedURL).replace(YouTubeTimeParameter, YouTubeTimeStartParameter);
+					}
+					else if (result.indexOf(VimeoURL) >= 0) { //Vimeo link from browser
+						embed = result.replace(VimeoURL, VimeoPlayerURL);
+					}
+					embed = "<iframe width=\"440\" height=\"245\" src=\"" + embed + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>";
+				}
+				else {
+					embed = result;
+				}
+
+				this.pasteHTML(embed);
 			}
 		},
 		orderedList: function () { this.ec("insertorderedlist"); },
@@ -319,7 +367,7 @@
 			$("ul li", this.toolbar).show().find("a.html").removeClass("highlighted");
 		},
 		toggleHTMLView: function () {
-			(this.textarea.is(":hidden")) ? this.showHTMLView() : this.hideHTMLView();
+			this.textarea.is(":hidden") ? this.showHTMLView() : this.hideHTMLView();
 		},
 
 		toHtmlString: function () {
@@ -345,7 +393,7 @@
 			["orderedlist", "unorderedlist"],
 			["indent", "outdent"],
 			["justifyleft", "justifycenter", "justifyright"],
-			["link", "unlink", "image", "embed", "horizontalrule"],
+			["emaillink", "link", "unlink", "image", "embed", "video", "horizontalrule"],
 			["p", "h1", "h2", "h3", "h4", "h5", "h6"],
 			["cut", "copy", "paste"]
 		],
@@ -357,7 +405,7 @@
 			indent: "Indent", outdent: "Outdent", horizontalrule: "Insert Horizontal Rule",
 			justifyleft: "Left Justify", justifycenter: "Center Justify", justifyright: "Right Justify",
 			increasefontsize: "Increase Font Size", decreasefontsize: "Decrease Font Size", forecolor: "Text Color",
-			link: "Insert Link", unlink: "Remove Link", image: "Insert Image", embed: "Insert Embedded link (e.g. YouTube)",
+			emaillink: "Email Link", link: "Insert Link", unlink: "Remove Link", image: "Insert Image", embed: "Insert Embedded Html", video: "Insert Video Link",
 			orderedlist: "Insert Ordered List", unorderedlist: "Insert Unordered List",
 			subscript: "Subscript", superscript: "Superscript",
 			html: "Show/Hide HTML Source View"
@@ -380,7 +428,11 @@
 			edit.write(this.textarea.val());
 			edit.close();
 			if (options.css) {
-				var e = edit.createElement('link'); e.rel = 'stylesheet'; e.type = 'text/css'; e.href = options.css; edit.getElementsByTagName('head')[0].appendChild(e);
+				var e = edit.createElement('link');
+				e.rel = 'stylesheet';
+				e.type = 'text/css';
+				e.href = options.css;
+				edit.getElementsByTagName('head')[0].appendChild(e);
 			}
 		},
 		initToolBar: function (options) {
@@ -414,7 +466,8 @@
 						ul.append(menuItem(e.css, e.text, e.action));
 					}
 				}
-			};
+			}
+
 			if (options.toolbar.length !== 0 && priv.isArray(options.toolbar[0])) {
 				for (var i = 0; i < options.toolbar.length; i++) {
 					addButtons(options.toolbar[i]);
@@ -449,28 +502,9 @@
 				keydown(fnTA).
 				mousedown(fnTA).
 				blur(fnTA);
-
-			$('form').submit(function () { t.toggleHTMLView(); t.toggleHTMLView(); });
-			//$(this.textarea[0].form).submit(function() { //this.textarea.closest("form").submit(function() {
-
-
-			// Fix for ASP.NET Postback Model
-			if (window.__doPostBack) {
-				var old__doPostBack = __doPostBack;
-				window.__doPostBack = function () {
-					if (t) {
-						if (t.toggleHTMLView) {
-							t.toggleHTMLView();
-							t.toggleHTMLView();
-						}
-					}
-					return old__doPostBack.apply(window, arguments);
-				};
-			}
-
 		},
 		isArray: function (v) {
-			return v && typeof v === 'object' && typeof v.length === 'number' && typeof v.splice === 'function' && !(v.propertyIsEnumerable('length'));
+			return v && typeof v === 'object' && typeof v.length === 'number' && typeof v.splice === 'function' && !v.propertyIsEnumerable('length');
 		}
 	};
 })(jQuery, window);
