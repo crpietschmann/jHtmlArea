@@ -38,9 +38,9 @@ $(function(){
 
 ## Tutorials / Articles
 
-[jHtmlArea - The all NEW HTML WYSIWYG Editor for jQuery](http://pietschsoft.com/post/2009/07/21/jHtmlArea-The-all-NEW-HTML-WYSIWYG-Editor-for-jQuery.aspx)
+[jHtmlArea - The all NEW HTML WYSIWYG Editor for jQuery](https://pietschsoft.com/post/2009/07/22/jhtmlarea-the-all-new-html-wysiwyg-editor-for-jquery)
 
-[Adding Custom Toolbar Buttons](http://pietschsoft.com/post/2009/08/18/jHtmlArea-Adding-Custom-Toolbar-Buttons.aspx)
+[Adding Custom Toolbar Buttons](https://pietschsoft.com/post/2009/08/18/jhtmlarea-adding-custom-toolbar-buttons)
 
 ## Icons
 
