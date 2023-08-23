@@ -1,8 +1,6 @@
 # jHtmlArea
 
-A simple, light weight, extensible WYSIWYG HTML Editor built on top of jQuery. This component allows you to easily display a WYSIWYG HTML Editor in place of any TextArea DOM Elements on the page. The minified script alone is 9.17kb; CSS and Images it's a total of 25.9kb.
-
-This project also includes Visual Studio JavaScript Intellisense support.
+A simple, light weight, extensible WYSIWYG HTML Editor built on top of jQuery. This component allows you to easily display a WYSIWYG HTML Editor in place of any TextArea DOM Elements on the page. The minified script alone is 10.3kb; CSS and Images it's a total of approx. 26kb.
 
 [View Documentation Here](https://github.com/crpietschmann/jHtmlArea/wiki)
 
@@ -10,9 +8,9 @@ This project also includes Visual Studio JavaScript Intellisense support.
 
 - Free, open source (MIT License)
 
-- Simple and Lightweight - 11kb minified - 25.3kb w/ css and images
+- Simple and Lightweight - ~10kb minified - ~26kb w/ css and images
 
-- Supports all mainstream browsers - IE7+, Firefox 3+, Safari 4+, Chrome
+- Supports all mainstream browsers - Chrome, Edge, Firefox, Safari
 
 - Built on top of jQuery (requires jQuery 1.3.2 or higher)
 
