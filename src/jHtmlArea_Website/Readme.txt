@@ -1,18 +1,22 @@
 /* jHtmlArea - WYSIWYG Html Editor jQuery Plugin
- * Copyright (c) 2013 Chris Pietschmann
- * http://jhtmlarea.codeplex.com
- * Licensed under the Microsoft Reciprocal License (Ms-RL)
- * http://jhtmlarea.codeplex.com/license
+ * Copyright (c) 2013-2023 Chris Pietschmann
+ * https://github.com/crpietschmann/jHtmlArea
+ * MIT License
+ * https://github.com/crpietschmann/jHtmlArea/license
 */
 
 EXAMPLE USAGE:
 -----------------------
 See "Default.htm" for example usages.
-Or, check out http://jhtmlarea.codeplex.com
+Or, check out https://github.com/crpietschmann/jHtmlArea
 
 
 CHANGE LOG
 -----------------------
+v1.0 (August 23, 2023)
+- Check compatibility with modern browsers
+- Fixed "paste" toolbar button (using navagator.clipboard)
+
 v0.8
 - Fixed modern browser support (IE9 and 10, Firefox 22)
 
@@ -20,7 +24,6 @@ v0.7.5
 - Fixed "html" method
 
 - Fixed jQuery UI Dialog Example
-
 
 v0.7.0
 - Fixed ColorPickerMenu positioning when placed within a "position: relative"

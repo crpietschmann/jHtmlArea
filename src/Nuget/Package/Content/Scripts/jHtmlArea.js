@@ -1,9 +1,9 @@
 ﻿/*
 * jHtmlArea 0.8 - WYSIWYG Html Editor jQuery Plugin
-* Copyright (c) 2013 Chris Pietschmann
-* http://jhtmlarea.codeplex.com
+* Copyright (c) 2013-2023 Chris Pietschmann
+* https://github.com/crpietschmann/jHtmlArea
 * Licensed under the Microsoft Reciprocal License (Ms-RL)
-* http://jhtmlarea.codeplex.com/license
+* https://github.com/crpietschmann/jHtmlArea/license
 */
 (function ($, window) {
 
@@ -65,7 +65,7 @@
     jHtmlArea.fn = jHtmlArea.prototype = {
 
         // The current version of jHtmlArea being used
-        jhtmlarea: "0.8",
+        jhtmlarea: "1.0",
 
         init: function (elem, options) {
             if (elem.nodeName.toLowerCase() === "textarea") {
@@ -78,10 +78,9 @@
                 var toolbar = this.toolbar = $("<div/>").addClass("ToolBar").appendTo(container);
                 priv.initToolBar.call(this, opts);
 
-                var iframe = this.iframe = $("<iframe/>").height(textarea.height());
-                iframe.width(textarea.width());
+                var iframe = this.iframe = $("<iframe/>");
 
-                var htmlarea = this.htmlarea = $("<div/>").append(iframe);
+                var htmlarea = this.htmlarea = $("<div/>").addClass("Body").append(iframe);
 
                 container.append(htmlarea).append(textarea.hide());
 
@@ -89,9 +88,7 @@
                 priv.attachEditorEvents.call(this);
 
                 // Fix total height to match TextArea
-                iframe.height(iframe.height() - toolbar.height());
-                toolbar.width(textarea.width());
-                
+                //htmlarea.height(iframe.height() - toolbar.height())                
 
                 if (opts.loaded) { opts.loaded.call(this); }
             }
@@ -177,7 +174,6 @@
                 r.insertNode($(this.iframe[0].contentWindow.document.createElement("span")).append($((html.indexOf("<") != 0) ? "<span>" + html + "</span>" : html))[0]);
             }
             r.collapse(false);
-            r.select();
         },
         cut: function () {
             this.ec("cut");
@@ -186,7 +182,10 @@
             this.ec("copy");
         },
         paste: function () {
-            this.ec("paste");
+            var that = this;
+            navigator.clipboard.readText().then((clipText) => {
+                that.pasteHTML(clipText);
+            });
         },
         bold: function () { this.ec("bold"); },
         italic: function () { this.ec("italic"); },

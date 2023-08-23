@@ -18,12 +18,6 @@ This project also includes Visual Studio JavaScript Intellisense support.
 
 - Full Documentation
 
-## NuGet Package
-
-[http://nuget.org/packages/jHtmlArea](http://nuget.org/packages/jHtmlArea)
-
-![](img/nuget-package-install.png)
-
 ## Screenshots
 
 ![](img/screenshot.png)
@@ -36,9 +30,15 @@ $(function(){
 });
 ```
 
+## NuGet Package
+
+[http://nuget.org/packages/jHtmlArea](http://nuget.org/packages/jHtmlArea)
+
+![](img/nuget-package-install.png)
+
 ## Tutorials / Articles
 
-[jHtmlArea - The all NEW HTML WYSIWYG Editor for jQuery](https://pietschsoft.com/post/2009/07/22/jhtmlarea-the-all-new-html-wysiwyg-editor-for-jquery)
+[jHtmlArea - The all NEW HTML WYSIWYG Editor for jQuery](https://pietschsoft.com/post/2009/07/21/jhtmlarea-the-all-new-html-wysiwyg-editor-for-jquery)
 
 [Adding Custom Toolbar Buttons](https://pietschsoft.com/post/2009/08/18/jhtmlarea-adding-custom-toolbar-buttons)
 

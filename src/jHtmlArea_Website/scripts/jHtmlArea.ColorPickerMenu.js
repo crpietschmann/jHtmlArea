@@ -1,10 +1,10 @@
 ﻿/*
 * jHtmlAreaColorPickerMenu 0.8.0 - A Color Picker Extension to jHtmlArea
 * Part of the jHtmlArea Project
-* Copyright (c) 2013 Chris Pietschmann
-* http://jhtmlarea.codeplex.com
+* Copyright (c) 2013-2023 Chris Pietschmann
+* https://github.com/crpietschmann/jHtmlArea
 * Licensed under the Microsoft Reciprocal License (Ms-RL)
-* http://jhtmlarea.codeplex.com/license
+* https://github.com/crpietschmann/jHtmlArea/license
 */
 (function($) {
     if (jHtmlArea) {
@@ -34,7 +34,7 @@
         return new jHtmlAreaColorPickerMenu.fn.init(ownerElement, options);
     };
     menu.fn = menu.prototype = {
-        jhtmlareacolorpickermenu: "0.8",
+        jhtmlareacolorpickermenu: "1.0",
 
         init: function(ownerElement, options) {
             var opts = $.extend({}, menu.defaultOptions, options);
