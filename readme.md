@@ -28,6 +28,32 @@ $(function(){
 });
 ```
 
+## jDelivr CDN
+
+Pull in from jsdelivr CDN:
+
+```
+<!-- jHtmlArea Compontent -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.0/dist/css/jHtmlArea.css">
+<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/js/jHtmlArea.js"></script>
+
+<!-- jHtmlArea Color Picker Menu -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.0/dist/css/jHtmlArea.ColorPickerMenu.css">
+<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/js/jHtmlArea.ColorPickerMenu.js"></script>
+```
+
+The minified links for the CDN:
+
+```
+<!-- jHtmlArea Compontent -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.0/dist/css/jHtmlArea.css">
+<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/js/jHtmlArea.min.js"></script>
+
+<!-- jHtmlArea Color Picker Menu -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.0/dist/css/jHtmlArea.ColorPickerMenu.css">
+<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/js/jHtmlArea.ColorPickerMenu.min.js"></script>
+```
+
 ## NuGet Package
 
 [http://nuget.org/packages/jHtmlArea](http://nuget.org/packages/jHtmlArea)
