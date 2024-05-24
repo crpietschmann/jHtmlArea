@@ -11,10 +11,10 @@
 div.jHtmlArea > div { display: inline-block; padding: 0px; margin: 0px; }
 div.jHtmlArea .Body { position: relative; left: 0; height: 100%; width: 100%; }
 div.jHtmlArea .ToolBar { display: inline-block; background: #fbfbfb; border-bottom: solid 1px #aaa; width: 100%;}
-div.jHtmlArea .ToolBar ul { border: solid 1px #ccc; margin: 1px; padding: 1px; float: left; background: #fff url(https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/css/jHtmlArea_Toolbar_Group_BG.png) repeat-x;}
+div.jHtmlArea .ToolBar ul { border: solid 1px #ccc; margin: 1px; padding: 1px; float: left; background: #fff url(https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.1/dist/css/jHtmlArea_Toolbar_Group_BG.png) repeat-x;}
 div.jHtmlArea .ToolBar ul li { list-style-type: none; float: left; border: none; padding: 1px; margin: 1px; }
-div.jHtmlArea .ToolBar ul li:hover { border: solid 1px #ccc; background: #ddd url(https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/css/jHtmlArea_Toolbar_Group__Btn_Select_BG.png); padding: 0; }
-div.jHtmlArea .ToolBar ul li a { display: block; width: 16px; height: 16px; background: url(https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/css/jHtmlArea.png) no-repeat -16px -500px; border: none; cursor: pointer; padding: 0px; }
+div.jHtmlArea .ToolBar ul li:hover { border: solid 1px #ccc; background: #ddd url(https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.1/dist/css/jHtmlArea_Toolbar_Group__Btn_Select_BG.png); padding: 0; }
+div.jHtmlArea .ToolBar ul li a { display: block; width: 16px; height: 16px; background: url(https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.1/dist/css/jHtmlArea.png) no-repeat -16px -500px; border: none; cursor: pointer; padding: 0px; }
 div.jHtmlArea .ToolBar ul li a.highlighted { border: solid 1px #aaa; background-color: #bbb; padding: 0; }
 div.jHtmlArea .ToolBar ul li.separator {height: 16px; margin: 0 2px 0 3px; border-left: 1px solid #ccc;}
 div.jHtmlArea .ToolBar ul li.separator:hover { padding: 1px; background-color: #fff; border-top:none; border-bottom:none; border-right:none;}

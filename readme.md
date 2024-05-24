@@ -34,12 +34,12 @@ Pull in from jsdelivr CDN:
 
 ```
 <!-- jHtmlArea Compontent -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.0/dist/css/jHtmlArea.css">
-<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/js/jHtmlArea.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.1/dist/css/jHtmlArea.css">
+<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.1/dist/js/jHtmlArea.js"></script>
 
 <!-- jHtmlArea Color Picker Menu -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.0/dist/css/jHtmlArea.ColorPickerMenu.css">
-<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.0/dist/js/jHtmlArea.ColorPickerMenu.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@v1.0.1/dist/css/jHtmlArea.ColorPickerMenu.css">
+<script src="https://cdn.jsdelivr.net/gh/crpietschmann/jHtmlArea@1.0.1/dist/js/jHtmlArea.ColorPickerMenu.js"></script>
 ```
 
 The minified links for the CDN:
