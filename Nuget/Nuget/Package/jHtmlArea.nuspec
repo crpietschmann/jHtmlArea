@@ -6,7 +6,7 @@
     <version>1.0.1</version>
     <authors>Chris Pietschmann</authors>
     <owners>Chris Pietschmann</owners>
-    <licenseUrl>https://github.com/crpietschmann/jHtmlArea/license</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/crpietschmann/jHtmlArea</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <readme>README.md</readme>
