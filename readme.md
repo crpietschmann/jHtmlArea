@@ -68,6 +68,4 @@ The minified links for the CDN:
 
 ## Icons
 
-This project also includes icons from the Silk Icon Set by Mark James. You can download the Silk Icon Set here:
-
-[http://www.famfamfam.com/lab/icons/silk/](http://www.famfamfam.com/lab/icons/silk/)
+This project also includes icons from the Silk Icon Set by Mark James. You can download the Silk Icon Set here: [https://github.com/legacy-icons/famfamfam-silk](https://github.com/legacy-icons/famfamfam-silk)
