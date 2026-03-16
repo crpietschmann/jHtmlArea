@@ -262,24 +262,57 @@
         },
 
         increaseFontSize: function () {
-            if ($browser.msie === true) {
-                this.ec("fontSize", false, this.qc("fontSize") + 1);
-            } else if ($browser.safari) {
-                this.getRange().surroundContents($(this.iframe[0].contentWindow.document.createElement("span")).css("font-size", "larger")[0]);
-            } else {
-                this.ec("increaseFontSize", false, "big");
+            var selection = this.getSelection();
+            var selectedText = selection.toString();
+        
+            if (selectedText.length > 0) {
+                var range = this.getRange();
+                var parentNode = range.startContainer.parentNode;
+        
+                if (parentNode.nodeName === "SPAN" && parentNode.style.fontSize) {
+                    var currentSize = parseFloat(parentNode.style.fontSize);
+                    parentNode.style.fontSize = Math.min(currentSize + 0.2, 10) + "em";
+                } else {
+                    var span = document.createElement("span");
+                    span.style.fontSize = "1.2em";
+                    span.textContent = selectedText;
+                    range.deleteContents();
+                    range.insertNode(span);
+        
+                    // Reset selection to include the newly inserted span
+                    range.setStart(span, 0);
+                    range.setEnd(span, span.childNodes.length);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
             }
         },
         decreaseFontSize: function () {
-            if ($browser.msie === true) {
-                this.ec("fontSize", false, this.qc("fontSize") - 1);
-            } else if ($browser.safari) {
-                this.getRange().surroundContents($(this.iframe[0].contentWindow.document.createElement("span")).css("font-size", "smaller")[0]);
-            } else {
-                this.ec("decreaseFontSize", false, "small");
+            var selection = this.getSelection();
+            var selectedText = selection.toString();
+        
+            if (selectedText.length > 0) {
+                var range = this.getRange();
+                var parentNode = range.startContainer.parentNode;
+        
+                if (parentNode.nodeName === "SPAN" && parentNode.style.fontSize) {
+                    var currentSize = parseFloat(parentNode.style.fontSize);
+                    parentNode.style.fontSize = Math.max(currentSize - 0.2, 0.5) + "em";
+                } else {
+                    var span = document.createElement("span");
+                    span.style.fontSize = "1em";
+                    span.textContent = selectedText;
+                    range.deleteContents();
+                    range.insertNode(span);
+        
+                    // Reset selection to include the newly inserted span
+                    range.setStart(span, 0);
+                    range.setEnd(span, span.childNodes.length);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
             }
         },
-
         forecolor: function (c) {
             this.ec("foreColor", false, c !== undefined ? c : prompt("Enter HTML Color:", "#"));
         },
